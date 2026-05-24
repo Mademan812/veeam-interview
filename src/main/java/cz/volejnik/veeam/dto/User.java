@@ -1,0 +1,7 @@
+package cz.volejnik.veeam.dto;
+
+import lombok.Builder;
+
+@Builder
+public record User(Long id, String username, String firstName, String lastName, String email, String password, String phone, Integer userStatus) {
+}

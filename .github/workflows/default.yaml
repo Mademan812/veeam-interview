@@ -1,0 +1,25 @@
+name: Default test job
+
+on:
+  workflow_dispatch:
+    inputs:
+      suite_name:
+        description: 'Test suite to execute.'
+        required: true
+        type: choice
+        default: 'default-suite.xml'
+        options:
+          - 'default-suite.xml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: docker build -t api-tests-automation .
+
+      - name: Run Tests in Docker Container
+        run: docker run --rm -e SUITE="${{ github.event.inputs.suite_name }}" api-tests-automation

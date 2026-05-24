@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Pet Service Test Suite" thread-count="1">
+
+    <listeners>
+        <listener class-name="cz.volejnik.veeam.listener.CustomTestListener" />
+    </listeners>
+
+    <test name="Pet Service Tests">
+        <classes>
+            <class name="cz.volejnik.veeam.pet.PetServiceTest" />
+        </classes>
+    </test>
+
+</suite>
