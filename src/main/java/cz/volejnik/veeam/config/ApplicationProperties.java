@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+/**
+ * Class to hold environment-specific variables.
+ */
 @Getter
 public class ApplicationProperties {
     private static final String FILE = "application.properties";
@@ -22,7 +25,12 @@ public class ApplicationProperties {
     private String elasticUsername;
     private String elasticPassword;
 
-    public void build(Environment environment) {
+    /**
+     * Loads values into this instance based on the provided environment.
+     *
+     * @param environment {@link Environment}
+     */
+    void load(Environment environment) {
         String path = environment.getFolder() + FILE;
 
         try (InputStream inputStream = ApplicationProperties.class.getClassLoader().getResourceAsStream(path)) {

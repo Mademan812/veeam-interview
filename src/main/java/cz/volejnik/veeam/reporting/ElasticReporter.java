@@ -2,6 +2,9 @@ package cz.volejnik.veeam.reporting;
 
 import lombok.AllArgsConstructor;
 
+/**
+ * This method would handle writing into an ElasticSearch instance. Implementation omitted for timeboxing reasons.
+ */
 @AllArgsConstructor
 public class ElasticReporter {
     private final String elasticUrl;

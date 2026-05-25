@@ -8,10 +8,19 @@ import lombok.experimental.UtilityClass;
 import tools.jackson.core.JacksonException;
 import tools.jackson.databind.ObjectMapper;
 
+/**
+ * Utility class that makes logging complex data easier and more efficient.
+ */
 @UtilityClass
 public class HttpPrettyPrinter {
     private static final CustomLogger LOGGER = CustomLogManager.getLogger(HttpPrettyPrinter.class);
 
+    /**
+     * Constructs the request's body as a prettified JSON String.
+     *
+     * @param request {@link FilterableRequestSpecification}
+     * @return Prettified JSON String
+     */
     public static String body(FilterableRequestSpecification request) {
         String result;
         Object body = request.getBody();
@@ -32,6 +41,14 @@ public class HttpPrettyPrinter {
         return result;
     }
 
+    /**
+     * Constructs response time into meaningful, readable formatted String. If time was less than 1000ms, returns
+     * a number of milliseconds (for example 395ms). If time was more than 1000ms, returns a number of seconds
+     * (for example 1.405s).
+     *
+     * @param response {@link Response}
+     * @return Formatted String of time elapsed
+     */
     public static String time(Response response) {
         String result;
         long time = response.getTime();

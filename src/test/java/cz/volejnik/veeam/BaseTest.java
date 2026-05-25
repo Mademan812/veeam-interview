@@ -1,5 +1,6 @@
 package cz.volejnik.veeam;
 
+import com.atlassian.oai.validator.restassured.OpenApiValidationFilter;
 import cz.volejnik.veeam.config.ApplicationProperties;
 import cz.volejnik.veeam.config.PropertiesBuilder;
 import cz.volejnik.veeam.reporting.CustomLogManager;
@@ -45,6 +46,6 @@ public class BaseTest {
             LOGGER.info(log);
             return response;
         });
-//        RestAssured.filters(new OpenApiValidationFilter("https://petstore.swagger.io/v2/swagger.yaml"));
+        RestAssured.filters(new OpenApiValidationFilter("https://petstore.swagger.io/v2/swagger.yaml"));
     }
 }

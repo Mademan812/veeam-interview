@@ -1,5 +1,9 @@
 package cz.volejnik.veeam.reporting;
 
+/**
+ * This method would handle writing into an ExtentReport and constructing a report file.
+ * Implementation omitted for timeboxing reasons.
+ */
 public class ExtentReport {
     public void startSuite(String name) {
         //implementation omitted for timeboxing reasons
