@@ -46,6 +46,8 @@ public class BaseTest {
             LOGGER.info(log);
             return response;
         });
-        RestAssured.filters(new OpenApiValidationFilter("https://petstore.swagger.io/v2/swagger.yaml"));
+        if(Boolean.parseBoolean(System.getProperty("contracts", "false"))) {
+            RestAssured.filters(new OpenApiValidationFilter("https://petstore.swagger.io/v2/swagger.yaml"));
+        }
     }
 }
